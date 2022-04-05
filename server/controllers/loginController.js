@@ -7,7 +7,7 @@ const loginController = {};
 //verify username is there
 //verify username matches password
     //if username and password do not match, send a message?
-//if there is a username, redirect page to dashboard and send a cookie
+    //if there is a matching username and password , redirect page to dashboard and send a cookie
 
 loginController.findUser = (req, res, next) => {
     const { username } = req.body;
