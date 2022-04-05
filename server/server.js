@@ -29,12 +29,12 @@ if (process.env.NODE_ENV === 'production') {
 
 //check login credentials
 app.post('/login', loginController.findUser, loginController.verifyUser, (req, res) => {
-    res.redirect('/getOverallData');
+    res.redirect('/');
 })
 
 //create user
 app.post('/signup', loginController.findUser, loginController.createUser, (req, res) => {
-    res.redirect('/getOverallData');
+    res.redirect('/');
 })
 
 //get overallall bloom ratings from the last week
