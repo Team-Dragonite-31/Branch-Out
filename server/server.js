@@ -7,12 +7,12 @@ const dotenv = require('dotenv');
 dotenv.config();
 const postsController = require('./controllers/postsController')
 const loginController = require('./controllers/loginController')
-//const cookieParser = require('cookie-parser');
+const cookieParser = require('cookie-parser');
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cors());
-//app.use(cookieParser());
+app.use(cookieParser());
 
 // app.use('/', (req, res) => {
 //     res.json('heyyyyy there http://localhost:3000!')
@@ -28,27 +28,28 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 //check login credentials
-app.post('/login', loginController.findUser, (req, res) => {
-    res.status(200).json(res.locals.user)
+app.post('/login', loginController.findUser, loginController.verifyUser, (req, res) => {
+    res.redirect('/getOverallData');
 })
 
 //create user
-app.post('/signup', (req, res, next) => {
+app.post('/signup', loginController.findUser, loginController.createUser, (req, res) => {
+    res.redirect('/getOverallData');
 })
 
 //get overallall bloom ratings from the last week
 app.get('/getOverallData', postsController.getOverallData, (req, res) => {
-    res.status(200).json(res.locals.average.round)
+    res.status(200).json(res.locals.average.round);
 });
 
 //get bloom ratings for specific park from last week
 app.get('/getParkData/:location', postsController.getParkData, postsController.getParkPosts, (req, res) => {
-    res.status(200).json({rating: res.locals.parkData.round, posts: res.locals.parkPosts})
+    res.status(200).json({rating: res.locals.parkData.round, posts: res.locals.parkPosts});
 })
 
 //submit a comment
-app.post('/submitReview', postsController.submitReview, postsController.getParkData, postsController.getParkPosts, (req, res, next) => {
-  res.status(200).json(res.locals.location);
+app.post('/submitReview', loginController.verifyLogin, postsController.submitReview, postsController.getParkData, postsController.getParkPosts, (req, res) => {
+  res.status(200).json({rating: res.locals.parkData.round, posts: res.locals.parkPosts});
 })
 
 // catch-all route handler for requests made to unknown route
