@@ -1,19 +1,22 @@
 import React from 'react';
 import Comment from './Comment.jsx';
+import SubmitForm from './SubmitForm.jsx';
 
-function Comments(props){
-    //form for submissions
-    //all comments in a div
-    console.log(props.posts);
+function Comments(props) {
     const comments = [];
-    for (let i = 0; i < props.posts.length; i++){
+    for (let i = 0; i < props.posts.length; i++) {
         comments.push(
-            <Comment post = {props.posts[i]}/>
+            <Comment post={props.posts[i]} />
         )
     }
+
+
     return (
         <div>
-            {comments}
+            <div>
+                <SubmitForm parkName={props.parkName} username={props.username} />
+                {comments}
+            </div>
         </div>
     )
 }
