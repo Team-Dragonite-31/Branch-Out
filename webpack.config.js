@@ -24,12 +24,13 @@ module.exports = {
             {
                 test: /scss$/,
                 exclude: /node_modules/,
-                use: ['style-loader', 'css-loader', 'sass-loader'],
+                use: ['style-loader', 'css-loader', 'sass-loader', 'postcss-loader'],
             },
             { test: /\.(png|jpg)$/, use: 'url-loader?limit=8192' },
         ],
     },
     plugins: [
+        require('autoprefixer'),
         new HWP(
             { template: path.join(__dirname, '/src/index.html') }
         )

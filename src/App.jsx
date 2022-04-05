@@ -7,14 +7,21 @@ import {
 } from "react-router-dom";
 import LoginContainer from './containers/LoginContainer.jsx';
 import MainContainer from './containers/MainContainer.jsx';
+import ParkContainer from './containers/ParkContainer.jsx';
 
 const App = () => {
     return (
         //add in the links to different pathways... the login, the app, etc.
+        //prospect park linking to the component but with different state linked for the park
         <div>
             <Routes>
-                <Route path="/" element={<LoginContainer/>} />
-                <Route path="/main" element={<MainContainer/>} />
+                <Route path="/" element={<MainContainer/>} />
+                <Route path="/ProspectPark" element={<ParkContainer/>} />
+                <Route path="/CentralPark" element={<ParkContainer/>} />
+                <Route path="/McCarrenPark" element={<ParkContainer/>} />
+                <Route path="/RooseveltIsland" element={<ParkContainer/>} />
+                <Route path="/HighlandPark" element={<ParkContainer/>} />
+                <Route path="/CoronaPark" element={<ParkContainer/>} />
             </Routes>
         </div>
     )
