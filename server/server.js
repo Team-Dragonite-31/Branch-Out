@@ -34,7 +34,7 @@ app.post('/signup', (req, res, next) => {
 })
 
 //get overall bloom ratings from the last week
-app.get('/getoverallData', (req,res,next) => {
+app.get('/getOverallData', (req,res,next) => {
 })
 
 //get bloom ratings for specific park from last week

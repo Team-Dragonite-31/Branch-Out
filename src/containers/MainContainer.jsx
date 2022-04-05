@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from 'react';
 import { Link } from "react-router-dom";
 import Header from '../components/Header.jsx'
 import BlossomMeter from '../components/BlossomMeter.jsx'
@@ -13,53 +13,44 @@ import bootstrap from 'bootstrap';
 
 //table 
 
-class MainContainer extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      rating: 0,
-      username: null,
-      location: null,
-      comments: []
-    };
-    this.getOverallData = this.getOverallData.bind(this);
-  }
+/*
+useEffect(() => {
+  //Runs only on the first render
+}, []);
+*/
 
-  getOverallData(){
+
+function MainContainer(props) {
+  const [rating, setRating] = useState('');
+  const [username, setUsername] = useState('');
+  const [location, setLocation] = useState('');
+  const [comments, setComments] = useState([]);
+
+
+  const getOverallData = function () {
     fetch(`http://localhost:3000/getOverallData`, {
       method: 'GET'
     })
       .then((result) => result.json())
       .then((data) => {
-        console.log('got some data');
-        return this.setState({
-          rating: data
-        })
+        setRating(data)
       })
       .catch(err => {
-        console.log('caught an error')
-        return this.setState({
-          rating: 1
-        })
+        setRating('0.0');
       })
   }
-  
-  componentDidMount(){
-    this.getOverallData()
-  }
 
+  useEffect(() => getOverallData(), []);
 
-
-render() {
   return (
     <div>
-      <Header username={this.state.username} />
-      <BlossomMeter rating={this.state.rating} />
-      <ParkList username={this.state.username} parkNames={this.state.parkNames} />
+      <Header username={username} />
+      <BlossomMeter rating={rating} />
+      <ParkList username={username} />
     </div>
 
   )
-}
+
 };
 
 export default MainContainer
