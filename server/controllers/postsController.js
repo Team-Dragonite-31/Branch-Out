@@ -62,7 +62,7 @@ postsController.getParkPosts = (req, res, next) => {
 
 postsController.submitReview = (req, res, next) => {
   const { username, location, rating, review, date } = req.body;
-  const query = 'INSERT INTO posts (user_id, location, rating, review, date) VALUES (SELECT user_id FROM users WHERE username = $1, $2, $3, $4, $5)';
+  const query = 'INSERT INTO posts (user_id, location, rating, review, date) VALUES ((SELECT user_id FROM users WHERE username = $1), $2, $3, $4, $5)';
   const values = [ username, location, rating, review, date ];
   db.query(query, values)
     .then(response => {

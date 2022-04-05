@@ -41,13 +41,11 @@ function ParkContainer(props) {
   
   useEffect(() => getParkData(), []);
   
-  
   return (
     <div>
       <Header />
       <BlossomMeter rating={rating} parkName={parkName.split('-').join(' ')} />
       <Comments posts={posts}/>
-      <h1>"In the park now!!"</h1>
     </div>
   )
 }

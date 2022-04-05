@@ -1,14 +1,19 @@
 import React from 'react';
+import Comment from './Comment.jsx';
 
 function Comments(props){
     //form for submissions
     //all comments in a div
+    console.log(props.posts);
+    const comments = [];
+    for (let i = 0; i < props.posts.length; i++){
+        comments.push(
+            <Comment post = {props.posts[i]}/>
+        )
+    }
     return (
         <div>
-            <h5>this is a comment</h5>
-            <h5>this is a comment</h5>
-            <h5>this is a comment</h5>
-            <h5>this is a comment</h5>
+            {comments}
         </div>
     )
 }
