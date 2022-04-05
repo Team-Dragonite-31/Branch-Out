@@ -16,12 +16,7 @@ const App = () => {
         <div>
             <Routes>
                 <Route path="/" element={<MainContainer/>} />
-                <Route path="/ProspectPark" element={<ParkContainer/>} />
-                <Route path="/CentralPark" element={<ParkContainer/>} />
-                <Route path="/McCarrenPark" element={<ParkContainer/>} />
-                <Route path="/RooseveltIsland" element={<ParkContainer/>} />
-                <Route path="/HighlandPark" element={<ParkContainer/>} />
-                <Route path="/CoronaPark" element={<ParkContainer/>} />
+                <Route path="/park/:parkName" element={<ParkContainer/>} />
             </Routes>
         </div>
     )

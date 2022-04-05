@@ -23,9 +23,6 @@ useEffect(() => {
 function MainContainer(props) {
   const [rating, setRating] = useState('');
   const [username, setUsername] = useState('');
-  const [location, setLocation] = useState('');
-  const [comments, setComments] = useState([]);
-
 
   const getOverallData = function () {
     fetch(`http://localhost:3000/getOverallData`, {
