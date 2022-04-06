@@ -20,7 +20,7 @@ import Comments from '../components/Comments.jsx';
 
 function ParkContainer(props) {
   const [rating, setRating] = useState('');
-  const [username, setUsername] = useState('test username');
+  // // this is where we want to get the username from local storage or state
   const [posts, setPosts] = useState([]);
   const [parkName, setParkName] = useState(useParams().parkName);
 
@@ -44,7 +44,7 @@ function ParkContainer(props) {
   return (
     <div>
       <BlossomMeter rating={rating} parkName={parkName.split('-').join(' ')} />
-      <Comments posts={posts} parkName={parkName} username={username}/>
+      <Comments posts={posts} setPosts={setPosts} setRating={setRating} parkName={parkName} username={props.username}/>
     </div>
   )
 }

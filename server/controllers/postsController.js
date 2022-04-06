@@ -22,7 +22,7 @@ postsController.getOverallData = (req, res, next) => {
 
 //get specific park rating
 postsController.getParkData = (req, res, next) => {
-    const location = res.locals.location ? res.locals.location : req.params.location
+    const location = req.params.location ? req.params.location : req.body.location
     const query = 'SELECT ROUND(AVG(rating), 2) FROM posts WHERE location = $1'
     const values = [location]
     db.query(query, values)

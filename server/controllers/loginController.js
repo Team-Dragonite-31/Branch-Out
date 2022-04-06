@@ -9,23 +9,23 @@ const loginController = {};
 //if username and password do not match, send a message?
 //if there is a matching username and password , redirect page to dashboard and send a cookie
 
-loginController.findUser = (req, res, next) => {
-  console.log('in find user controller')
-  const { username } = req.body;
-  const query = `SELECT * FROM users WHERE username = $1`
-  const values = [username]
-  db.query(query, values)
-    .then((response) => {
-      res.locals.user = response.rows[0]
-      return next();
-    })
-    .catch(err => {
-      return next({
-        log: `loginController.findUser: ERROR: ${err}`,
-        message: { err: 'loginController.findUser: ERROR: Check server log for details' },
-      });
-    })
-}
+// loginController.findUser = (req, res, next) => {
+//   console.log('in find user controller')
+//   const { username } = req.body;
+//   const query = `SELECT * FROM users WHERE username = $1`
+//   const values = [username]
+//   db.query(query, values)
+//     .then((response) => {
+//       res.locals.user = response.rows[0]
+//       return next();
+//     })
+//     .catch(err => {
+//       return next({
+//         log: `loginController.findUser: ERROR: ${err}`,
+//         message: { err: 'loginController.findUser: ERROR: Check server log for details' },
+//       });
+//     })
+// }
 
 loginController.verifyUser = (req, res, next) => {
   console.log('in verify user controller')
@@ -35,8 +35,8 @@ loginController.verifyUser = (req, res, next) => {
   const values = [username, password]
   db.query(query, values)
     .then((response) => {
-      res.locals.user = response.rows[0].username
-      res.cookie('signin', res.locals.user)
+      if (response.rows.length) res.locals.user = response.rows[0].username
+      else res.locals.user = ''
       return next();
     })
     .catch(err => {
