@@ -18,7 +18,7 @@ const App = () => {
         <Route path="/park/:parkName" element={<ParkContainer username={username}/>} />
         <Route
           path="/login"
-          element={<LoginContainer setUserName={setUsername} />}
+          element={<LoginContainer username={username} setUserName={setUsername} />}
         />
       </Routes>
     </div>

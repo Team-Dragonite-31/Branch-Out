@@ -23,37 +23,12 @@ const LoginContainer = (props) => {
       // .then((result) => console.log('result:', result))
       .then((name) => props.setUserName(name))
       .then((data)=>{
-        if(data !== '') window.location.href='/'
+        if(props.username !== '') window.location.href='/'
       })
       .catch((err) => {
-        //props.setUserName('')
         console.log('no user in system')
       })
-      // .then(data => console.log(message))
-        // .then(data => data.json())
-        // .then(data => setMessage(data)
-
   }
-
-  // const signup = (e) => {
-  //   e.preventDefault();
-  //   try{
-  //     const body = {
-  //       username: username,
-  //       password: password
-  //     }
-  //     const metaData = {
-  //       method: 'POST',
-  //       headers: {"Content-Type": "application/json"},
-  //       body: JSON.stringify(body)
-  //     }
-  //     fetch('/login', metaData)
-  //       .then(data => data.json())
-  //   }
-  //   catch(err){
-  //     console.log(err)
-  //   }
-  // }
 
   const handleUserChange = (e) => {
     setUserInput(e.target.value);
