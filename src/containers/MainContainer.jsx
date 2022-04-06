@@ -42,7 +42,7 @@ function MainContainer(props) {
   return (
     <div>
       <BlossomMeter rating={rating} />
-      <ParkList username={props.username} />
+      <ParkList className="parks" username={props.username} />
     </div>
 
   )

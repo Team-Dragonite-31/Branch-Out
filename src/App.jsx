@@ -1,10 +1,15 @@
-import ReactDOM from "react-dom";
-import React, { useEffect, useState } from "react";
-import { Route, Link, Routes } from "react-router-dom";
-import LoginContainer from "./containers/LoginContainer.jsx";
-import MainContainer from "./containers/MainContainer.jsx";
-import ParkContainer from "./containers/ParkContainer.jsx";
-import Header from "./components/Header.jsx";
+import ReactDOM from 'react-dom';
+import React, { useEffect, useState } from 'react';
+import {
+    Route,
+    Link,
+    Routes
+} from "react-router-dom";
+import LoginContainer from './containers/LoginContainer.jsx';
+import MainContainer from './containers/MainContainer.jsx';
+import ParkContainer from './containers/ParkContainer.jsx';
+import Header from './components/Header.jsx'
+import './styling/styles.scss'
 
 const App = () => {
   const [username, setUsername] = useState('');
