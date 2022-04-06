@@ -1,11 +1,14 @@
-import React from 'react';
-
+import React, { useEffect, useState } from 'react';
+import { Link } from "react-router-dom";
 
 function Header(props){
+    const button = []
+    if (props.username === '') button.push(<Link key={4} to='/login'><button key={1} className='loginButton'>Login</button></Link>)
+    else button.push(<button key={1} className='loginButton'>Hello {props.username}</button>)
     return(
         <div>
-            <button className="mainButton">Branch Out</button>
-            <button className="loginButton">Hello User!</button>
+            <button className="btn btn-primary" key={3}>Branch Out</button>
+            {button}
         </div>
     )
 }

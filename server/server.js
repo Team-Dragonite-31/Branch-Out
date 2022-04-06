@@ -28,13 +28,18 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 //check login credentials
-app.post('/login', loginController.findUser, loginController.verifyUser, (req, res) => {
-    res.redirect('/');
+app.post('/login', loginController.verifyUser, (req, res) => {
+    res.json(res.locals.user);
+    //return res.redirect('/');
 })
 
 //create user
 app.post('/signup', loginController.findUser, loginController.createUser, (req, res) => {
-    res.redirect('/');
+    return res.redirect('/');
+})
+
+app.get('/username', loginController.verifyLogin, (req, res) => {
+    res.status(200).json(res.locals.username)
 })
 
 //get overallall bloom ratings from the last week
@@ -50,6 +55,10 @@ app.get('/getParkData/:location', postsController.getParkData, postsController.g
 //submit a comment
 app.post('/submitReview', loginController.verifyLogin, postsController.submitReview, postsController.getParkData, postsController.getParkPosts, (req, res) => {
   res.status(200).json({rating: res.locals.parkData.round, posts: res.locals.parkPosts});
+})
+
+app.get('/', (req, res) => {
+    res.status(200).sendFile(path.join(__dirname, './src/index.html'))
 })
 
 // catch-all route handler for requests made to unknown route

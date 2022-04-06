@@ -7,7 +7,8 @@ module.exports = {
     entry: path.join(__dirname, '/src/index.js'),
     output: {
         path: path.resolve(__dirname, 'dist'),
-        filename: 'build.js'
+        filename: 'build.js',
+        publicPath: '/'
     },
     module: {
         rules: [
@@ -29,19 +30,20 @@ module.exports = {
             { test: /\.(png|jpg)$/, use: 'url-loader?limit=8192' },
         ],
     },
-    plugins: [
-        require('autoprefixer'),
-        new HWP(
-            { template: path.join(__dirname, '/src/index.html') }
-        )
-    ],
     devServer: {
+        historyApiFallback:true,
         static: {
             directory: path.resolve(__dirname, 'dist'),
             publicPath: '/build'
         },
         // proxy: {
-        //     '/': 'http://localhost:3000/'
-        // }
-    },
+            //     '/': 'http://localhost:3000/'
+            // }
+        },
+        plugins: [
+            require('autoprefixer'),
+            new HWP(
+                { template: path.join(__dirname, '/src/index.html') }
+            )
+        ],
 };

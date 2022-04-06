@@ -10,6 +10,7 @@ const loginController = {};
 //if there is a matching username and password , redirect page to dashboard and send a cookie
 
 loginController.findUser = (req, res, next) => {
+  console.log('in find user controller')
   const { username } = req.body;
   const query = `SELECT * FROM users WHERE username = $1`
   const values = [username]
@@ -27,12 +28,23 @@ loginController.findUser = (req, res, next) => {
 }
 
 loginController.verifyUser = (req, res, next) => {
+  console.log('in verify user controller')
   const { username, password } = req.body
-  if (!res.locals.user || password !== res.locals.user.password) res.send('Username or password invalid. Try again or sign up.')
-  else {
-    res.cookie('signin', username), { httpOnly: true }
-    return next()
-  }
+  console.log(username, password);
+  const query = `SELECT username FROM users WHERE username = $1 AND password=$2`
+  const values = [username, password]
+  db.query(query, values)
+    .then((response) => {
+      res.locals.user = response.rows[0].username
+      res.cookie('signin', res.locals.user)
+      return next();
+    })
+    .catch(err => {
+      return next({
+        log: `loginController.verifyUser: ERROR: ${err}`,
+        message: { err: 'loginController.verifyUser: ERROR: Check server log for details' },
+      })
+    })
 }
 
 loginController.createUser = (req, res, next) => {
@@ -56,7 +68,10 @@ loginController.createUser = (req, res, next) => {
 }
 
 loginController.verifyLogin = (req, res, next) => {
-  if (req.cookies && req.cookies.signin) return next()
+  if (req.cookies && req.cookies.signin) {
+    res.locals.user = req.cookies.signin
+    return next()
+  }
   //else res.json('user not logged in')
   else return next({
     log: `loginController.verifyUser: ERROR`,
