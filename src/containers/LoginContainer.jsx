@@ -1,6 +1,7 @@
 import React, { Component, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-
+// import blossom from '../assets/cherry_blossoms.jpg';
+import blossom from '../assets/cherry_blossoms.jpeg';
 const LoginContainer = (props) => {
   const [userInput, setUserInput] = useState('');
   const [passInput, setPassInput] = useState('');
@@ -64,10 +65,25 @@ const LoginContainer = (props) => {
     setPassInput(e.target.value);
   };
   return (
-    <div>
-      <h1>Branch Out</h1>
-      <h3>New York's home for foliage friends.</h3>
+    <div style={{ diplay: 'flex', justifyContent: 'center' }}>
+      <h1 style={{ textAlign: 'center' }}>Branch Out</h1>
+      <h3 style={{ textAlign: 'center' }}>
+        New York's home for foliage friends.
+      </h3>
+      <div style={{ diplay: 'flex', justifyContent: 'center' }}>
+        <img
+          className='loginPic'
+          src={blossom}
+          style={{
+            height: '300px',
+            width: '400px',
+            display: 'block',
+            margin: '0 auto',
+          }}
+        />
+      </div>
       <input
+        id='usernameInput'
         className='form-control'
         placeholder='Enter username'
         value={userInput}
