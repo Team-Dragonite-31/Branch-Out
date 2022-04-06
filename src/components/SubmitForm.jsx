@@ -40,7 +40,7 @@ function SubmitForm(props) {
                     Date Visited:
                     <input type="date" required value={date} onChange={(e => setDate(e.target.value))} />
                 </label>
-                <label for="rating">Rating:</label>
+                <label htmlFor="rating">Rating:</label>
                 <select name="rating" id="rating" required value={rating} onChange={(e => setRating(e.target.value))}>
                     <option value="1">1</option>
                     <option value="2">2</option>

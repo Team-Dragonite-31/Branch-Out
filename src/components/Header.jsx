@@ -9,6 +9,7 @@ function Header(props){
       useEffect(() => {
         window.localStorage.setItem('username', props.username);
       }, [props.username]);
+      
     const button = []
     if (props.username === '') button.push(<Link key={4} to='/login'><button key={1} className='loginButton'>Login</button></Link>)
     else button.push(<button key={1} className='loginButton'>Hello {props.username}</button>)

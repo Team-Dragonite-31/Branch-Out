@@ -1,20 +1,14 @@
 import React from 'react';
 import ParkButton from '../components/ParkButton.jsx';
 
-class ParkList extends React.Component {
+function ParkList (props){
     //use props to add the rating here
-    constructor(props){
-        super(props);
-        this.state = {
-            parkNames: ['Central Park', 'Prospect Park', 'McCarren Park', 'Roosevelt Island', 'Highland Park', 'Corona Park'],
-        };
+    const parkNames = ['Central Park', 'Prospect Park', 'McCarren Park', 'Roosevelt Island', 'Highland Park', 'Corona Park']
 
-    }
-    render(){
         const buttonsArr = [];
-        for (let i = 0; i < this.state.parkNames.length; i++){
+        for (let i = 0; i < parkNames.length; i++){
             buttonsArr.push(
-                <ParkButton key={`park${i}`} parkName={this.state.parkNames[i]} username={this.props.username}/>
+                <ParkButton key={`park${i}`} parkName={parkNames[i]} username={props.username}/>
             )
         }
         return (
@@ -22,7 +16,6 @@ class ParkList extends React.Component {
                 { buttonsArr }
             </div>
         )
-    }
 }
 
 
