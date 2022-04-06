@@ -1,6 +1,6 @@
 const path = require('path');
 const db = require('../models/db')
-// const { resourceLimits } = require('worker_threads');
+const { resourceLimits } = require('worker_threads');
 
 const postsController = {};
 
