@@ -9,6 +9,7 @@ import LoginContainer from './containers/LoginContainer.jsx';
 import MainContainer from './containers/MainContainer.jsx';
 import ParkContainer from './containers/ParkContainer.jsx';
 import Header from './components/Header.jsx'
+import './styling/styles.scss'
 
 const App = () => {
     const [username, setUsername] = useState('');

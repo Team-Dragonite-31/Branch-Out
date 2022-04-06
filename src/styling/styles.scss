@@ -1,8 +1,45 @@
-@import "../../node_modules/bootstrap/scss/bootstrap";
+@import '../../node_modules/bootstrap/scss/bootstrap';
 
 $primary: $blue-300;
 $dark: $indigo-700;
 
+body {
+  font-family: 'Montserrat', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(246, 205, 212);
+}
+
+.parks {
+  justify-content: center;
+}
+
 .reviewPost {
+  margin-top: 20px;
   list-style: none;
+  border: solid;
+  border-radius: 10px;
+  max-width: 50vw;
+  text-align: center;
+}
+
+.blossomMeter {
+  text-align: center;
+}
+
+.reviewForm {
+  margin-top: 20px;
+}
+
+.loginButton {
+  display: flex;
+  justify-content: flex-start;
+  margin-top: 20px;
+  margin-right: 10px;
+  height: 100%;
+}
+
+.headerStyling {
+  padding-bottom: 50px;
 }

@@ -31,16 +31,16 @@ function SubmitForm(props) {
 
 
     return (
-        <div>
-            <h2>Add a Review:</h2>
+        <div className="reviewForm">
+            <h5 className="addReview">Add a Review:</h5>
 
 
-            <form onSubmit={e => { submitPost(e) }} >
+            <form className="form" onSubmit={e => { submitPost(e) }} >
                 <label>
                     Date Visited:
                     <input type="date" required value={date} onChange={(e => setDate(e.target.value))} />
                 </label>
-                <label for="rating">Rating:</label>
+                <label htmlFor="rating">Rating:</label>
                 <select name="rating" id="rating" required value={rating} onChange={(e => setRating(e.target.value))}>
                     <option value="1">1</option>
                     <option value="2">2</option>
@@ -52,7 +52,7 @@ function SubmitForm(props) {
                     Comments:
                     <input type="text" value={comments} onChange={(e => setComments(e.target.value))} />
                 </label>
-                <input type="submit" value="Submit" />
+                <input type="submit" value="Submit" className="btn btn-light" />
             </form>
 
         </div>
