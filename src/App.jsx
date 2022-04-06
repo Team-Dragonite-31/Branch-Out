@@ -28,9 +28,9 @@ const App = () => {
     //   useEffect(() => {
     //     getUsername()
     //   }, []);
-    useEffect(() => {
-        window.localStorage.setItem('username', username);
-      }, [username]);
+    // useEffect(() => {
+    //     window.localStorage.setItem('username', username);
+    //   }, [username]);
     return (
         //add in the links to different pathways... the login, the app, etc.
         //prospect park linking to the component but with different state linked for the park
