@@ -14,7 +14,7 @@ class ParkList extends React.Component {
         const buttonsArr = [];
         for (let i = 0; i < this.state.parkNames.length; i++){
             buttonsArr.push(
-                <ParkButton parkName={this.state.parkNames[i]} username={this.props.username}/>
+                <ParkButton key={`park${i}`} parkName={this.state.parkNames[i]} username={this.props.username}/>
             )
         }
         return (

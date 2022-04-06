@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import Header from '../components/Header.jsx'
 import BlossomMeter from '../components/BlossomMeter.jsx'
 import ParkList from '../components/ParkList.jsx'
-import bootstrap from 'bootstrap';
 
 //onLoad => send a GET request to back-end
 //header div => branch out button => back to this page, 'hello user' or button to login if user is undefined
@@ -22,7 +21,6 @@ useEffect(() => {
 
 function MainContainer(props) {
   const [rating, setRating] = useState('');
-  const [username, setUsername] = useState('');
 
   const getOverallData = function () {
     fetch(`http://localhost:3000/getOverallData`, {
@@ -37,13 +35,14 @@ function MainContainer(props) {
       })
   }
 
-  useEffect(() => getOverallData(), []);
+  useEffect(() => {
+    getOverallData()
+  }, []);
 
   return (
     <div>
-      <Header username={username} />
       <BlossomMeter rating={rating} />
-      <ParkList username={username} />
+      <ParkList username={props.username} />
     </div>
 
   )

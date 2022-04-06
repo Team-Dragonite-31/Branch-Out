@@ -8,7 +8,7 @@ function Comments(props){
     const comments = [];
     for (let i = 0; i < props.posts.length; i++){
         comments.push(
-            <Comment post = {props.posts[i]}/>
+            <Comment key={`comment${i}`} post = {props.posts[i]}/>
         )
     }
     return (
