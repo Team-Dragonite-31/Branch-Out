@@ -5,7 +5,7 @@ function BlossomMeter(props) {
     let title;
     props.parkName ? title = props.parkName : title = 'Blossom Meter'
     return (
-        <div>
+        <div className="blossomMeter">
             <h1>{ title }</h1>
             <h2>Overall: {props.rating}</h2>
         </div>
