@@ -12,11 +12,6 @@ const LoginContainer = (props) => {
         username: userInput,
         password: passInput
       }
-      // const metaData = {
-      //   method: 'POST',
-      //   headers: {"Content-Type": "application/json"},
-      //   body: JSON.stringify(body)
-      // }
       fetch('http://localhost:3000/login', {
         method: 'POST',
         headers: {
@@ -25,35 +20,15 @@ const LoginContainer = (props) => {
         body: JSON.stringify(body)
       })
       .then((data) => data.json())
-      //.then((result) => console.log('result:', result))
+      // .then((result) => console.log('result:', result))
       .then((name) => props.setUserName(name))
-      .then((data)=>window.location.href='/')
-      .catch((err) => console.log('no user in system'))
-      // .then(data => console.log(message))
-        // .then(data => data.json())
-        // .then(data => setMessage(data)
-
+      .then((data)=>{
+        if(props.username !== '') window.location.href='/'
+      })
+      .catch((err) => {
+        console.log('no user in system')
+      })
   }
-
-  // const signup = (e) => {
-  //   e.preventDefault();
-  //   try{
-  //     const body = {
-  //       username: username,
-  //       password: password
-  //     }
-  //     const metaData = {
-  //       method: 'POST',
-  //       headers: {"Content-Type": "application/json"},
-  //       body: JSON.stringify(body)
-  //     }
-  //     fetch('/login', metaData)
-  //       .then(data => data.json())
-  //   }
-  //   catch(err){
-  //     console.log(err)
-  //   }
-  // }
 
   const handleUserChange = (e) => {
     setUserInput(e.target.value);
