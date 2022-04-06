@@ -10,6 +10,28 @@ body {
   background-color: rgb(243, 217, 222);
 }
 
+h1 {
+  padding-top: 20px;
+}
+
+a {
+  color: white;
+  text-decoration: none;
+}
+
+a:hover {
+  color: rgba(238, 63, 109, 0.5);
+}
+
+h2 {
+  margin-bottom: 20px;
+}
+
+img {
+  border-radius: 50%;
+  margin: 5px;
+}
+
 .parks {
   justify-content: center;
 }
@@ -24,6 +46,8 @@ body {
   border-radius: 10px;
   width: 40vw;
   text-align: center;
+  background-color: white;
+  box-shadow: 3px 3px;
 }
 
 .blossomMeter {
@@ -36,10 +60,6 @@ body {
 }
 
 #userRating {
-  margin-left: 5px;
-}
-
-.rating {
   margin-left: 5px;
 }
 
@@ -73,4 +93,55 @@ body {
 
 .headerStyling {
   padding-bottom: 50px;
+}
+
+#logo {
+  border-radius: 0%;
+  height: 3em;
+}
+
+#navBar {
+  background-color: white !important;
+}
+
+#login {
+  background-color: rgba(238, 63, 109, 0.5);
+  outline: rgb(241, 187, 198) !important;
+  margin-right: 5px;
+  color: white;
+}
+
+#name {
+  background-color: rgba(238, 63, 109, 0.5);
+  outline: rgb(241, 187, 198) !important;
+  margin-right: 5px;
+  color: white;
+}
+
+#loginButton {
+  margin-left: 5px;
+  background-color: rgb(241, 187, 198);
+  outline: rgb(241, 187, 198) !important;
+  color: white;
+}
+
+#signupButton {
+  margin-left: 5px;
+  background-color: rgb(241, 187, 198);
+  outline: rgb(241, 187, 198) !important;
+  color: white;
+}
+
+.flex-parent-element {
+  display: flex;
+  width: 50%;
+}
+
+.flex-child-element {
+  flex: 1;
+  border: 2px solid blueviolet;
+  margin: 10px;
+}
+.flex-child-element:first-child {
+  margin-right: 20px;
 }
