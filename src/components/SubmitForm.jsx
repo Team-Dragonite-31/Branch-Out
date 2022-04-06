@@ -30,7 +30,8 @@ function SubmitForm(props) {
 
     const submitPost = (e) => {
         e.preventDefault();
-        submitReview();
+        if (props.username) submitReview();
+        else alert('Please login to make a comment')
     }
 
 
