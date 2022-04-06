@@ -1,8 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+// const prospect = park;
 function ParkButton(props) {
-  //{this.props.parkName}
   return (
     <div
       style={{
@@ -12,7 +12,16 @@ function ParkButton(props) {
       }}
     >
       <Link to={'/park/' + props.parkName.split(' ').join('-')}>
-        <h3>{props.parkName}</h3>
+        {/* <img src={prospect} alt='prospect' /> */}
+        <h3
+          style={{
+            display: 'flex',
+            justifyContent: 'center',
+            marginTop: '10px',
+          }}
+        >
+          {props.parkName}
+        </h3>
       </Link>
     </div>
   );

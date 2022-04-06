@@ -28,6 +28,14 @@ module.exports = {
                 use: ['style-loader', 'css-loader', 'sass-loader', 'postcss-loader'],
             },
             { test: /\.(png|jpg)$/, use: 'url-loader?limit=8192' },
+            {
+                test: /\.(png|jpe?g|gif)$/i,
+                use: [
+                  {
+                    loader: 'file-loader',
+                  },
+                ],
+              },
         ],
     },
     devServer: {
