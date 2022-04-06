@@ -27,6 +27,7 @@ const LoginContainer = (props) => {
       .then((data) => data.json())
       //.then((result) => console.log('result:', result))
       .then((name) => props.setUserName(name))
+      .then((data)=>window.location.href='/')
       .catch((err) => console.log('no user in system'))
       // .then(data => console.log(message))
         // .then(data => data.json())
