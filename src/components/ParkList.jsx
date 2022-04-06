@@ -9,7 +9,7 @@ import corona from '../assets/corona.jpeg';
 
 function ParkList(props) {
   //use props to add the rating here
-  // const parkImages = []
+  const parkImages = [central, prospect, mccaren, roosevelt, highland, corona];
   const parkNames = [
     'Central Park',
     'Prospect Park',
@@ -26,6 +26,7 @@ function ParkList(props) {
         key={`park${i}`}
         parkName={parkNames[i]}
         username={props.username}
+        image={parkImages[i]}
       />
     );
   }
