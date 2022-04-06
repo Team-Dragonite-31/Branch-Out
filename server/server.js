@@ -35,7 +35,7 @@ app.post("/login", loginController.verifyUser, (req, res) => {
 
 //create user
 app.post("/signup", loginController.createUser, (req, res) => {
-  return res.redirect("/");
+    res.json(res.locals.user);
 });
 
 app.get("/username", loginController.verifyLogin, (req, res) => {
