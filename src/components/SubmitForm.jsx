@@ -31,32 +31,56 @@ function SubmitForm(props) {
 
 
     return (
-        <div className="reviewForm">
-            <h5 className="addReview">Add a Review:</h5>
+      <div className='reviewForm'>
+        <h5 className='addReview'>Add a Review:</h5>
 
-
-            <form className="form" onSubmit={e => { submitPost(e) }} >
-                <label>
-                    Date Visited:
-                    <input type="date" required value={date} onChange={(e => setDate(e.target.value))} />
-                </label>
-                <label htmlFor="rating">Rating:</label>
-                <select name="rating" id="rating" required value={rating} onChange={(e => setRating(e.target.value))}>
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
-                </select>
-                <label>
-                    Comments:
-                    <input type="text" value={comments} onChange={(e => setComments(e.target.value))} />
-                </label>
-                <input type="submit" value="Submit" className="btn btn-light" />
-            </form>
-
-        </div>
-    )
+        <form
+          className='form'
+          onSubmit={(e) => {
+            submitPost(e);
+          }}
+        >
+          <label className='date'>
+            Date Visited:
+            <input
+              className='date'
+              type='date'
+              required
+              value={date}
+              onChange={(e) => setDate(e.target.value)}
+            />
+          </label>
+          <label htmlFor='rating' className='rating'>
+            Rating:
+          </label>
+          <select
+            name='rating'
+            id='rating'
+            required
+            value={rating}
+            onChange={(e) => setRating(e.target.value)}
+          >
+            <option value='1'>1</option>
+            <option value='2'>2</option>
+            <option value='3'>3</option>
+            <option value='4'>4</option>
+            <option value='5'>5</option>
+          </select>
+          <div>
+            <label>
+              Comments:
+              <input
+                className='commentForm'
+                type='text'
+                value={comments}
+                onChange={(e) => setComments(e.target.value)}
+              />
+            </label>
+            <input type='submit' value='Submit' className='btn btn-light' />
+          </div>
+        </form>
+      </div>
+    );
 }
 
 export default SubmitForm;
