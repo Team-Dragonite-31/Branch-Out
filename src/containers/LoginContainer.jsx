@@ -21,12 +21,38 @@ const LoginContainer = (props) => {
       })
       .then((data) => data.json())
       // .then((result) => console.log('result:', result))
-      .then((name) => props.setUserName(name))
-      .then((data)=>{
-        if(props.username !== '') window.location.href='/'
+      .then((name) => {
+        props.setUserName(name)
+        if(name) window.location.href='/'
+        else alert('Username or password invalid. Please try again.')
       })
       .catch((err) => {
-        console.log('no user in system')
+        console.log('bad')
+      })
+  }
+
+  const signup = (e) => {
+    e.preventDefault();
+      const body = {
+        username: userInput,
+        password: passInput
+      }
+      fetch('http://localhost:3000/signup', {
+        method: 'POST',
+        headers: {
+          "Content-Type" : "application/json",
+        },
+        body: JSON.stringify(body)
+      })
+      .then((data) => data.json())
+      // .then((result) => console.log('result:', result))
+      .then((name) => props.setUserName(name))
+      .then((data)=>{
+        window.location.href='/'
+      })
+      .catch((err) => {
+        window.alert('Username is aready taken')
+        window.location.href='/login'
       })
   }
 
@@ -42,7 +68,9 @@ const LoginContainer = (props) => {
       <h1>"Hellooooo!"</h1>
           <input className='form-control' placeholder="Enter email" value={userInput} onChange={handleUserChange}></input>
           <input className='form-control' placeholder="Enter password" value={passInput}onChange={handlePassChange}></input>
-          <button type="submit" className="btn btn-primary" onClick={login}>Submit</button> 
+          <button type="submit" className="btn btn-primary" onClick={login}>Log In</button> 
+          <button type="submit" className="btn btn-primary" onClick={signup}>Sign Up</button> 
+
     </div> 
   )
 };

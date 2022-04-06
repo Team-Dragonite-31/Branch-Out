@@ -48,14 +48,13 @@ loginController.verifyUser = (req, res, next) => {
 }
 
 loginController.createUser = (req, res, next) => {
-  if (res.locals.user) res.send('Please try a different username.');
-  else {
     const { username, password } = req.body;
-    const query = 'INSERT INTO users (username, password) VALUES ($1, $2)';
+    const query = 'INSERT INTO users (username, password) VALUES ($1, $2) RETURNING username';
     const values = [username, password];
     db.query(query, values)
       .then(response => {
-        res.cookie('signin', username), { httpOnly: true };
+        if (response.rows.length) res.locals.user = response.rows[0].username
+        else res.locals.user = ''
         return next();
       })
       .catch(err => {
@@ -64,7 +63,6 @@ loginController.createUser = (req, res, next) => {
           message: { err: 'loginController.createUser: ERROR: Check server log for details' }
         })
       })
-  }
 }
 
 loginController.verifyLogin = (req, res, next) => {
