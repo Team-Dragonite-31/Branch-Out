@@ -1,7 +1,11 @@
 import React from 'react';
 import ParkButton from '../components/ParkButton.jsx';
-
+import central from '../assets/central.jpeg';
 import prospect from '../assets/prospect.jpeg';
+import mccaren from '../assets/mccaren.jpeg';
+import roosevelt from '../assets/Roosevelt-Island.jpeg';
+import highland from '../assets/highland.jpeg';
+import corona from '../assets/corona.jpeg';
 
 function ParkList(props) {
   //use props to add the rating here
