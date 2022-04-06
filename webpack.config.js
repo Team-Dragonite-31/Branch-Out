@@ -7,7 +7,8 @@ module.exports = {
     entry: path.join(__dirname, '/src/index.js'),
     output: {
         path: path.resolve(__dirname, 'dist'),
-        filename: 'build.js'
+        filename: 'build.js',
+        publicPath: '/'
     },
     module: {
         rules: [
@@ -24,23 +25,33 @@ module.exports = {
             {
                 test: /scss$/,
                 exclude: /node_modules/,
-                use: ['style-loader', 'css-loader', 'sass-loader'],
+                use: ['style-loader', 'css-loader', 'sass-loader', 'postcss-loader'],
             },
             { test: /\.(png|jpg)$/, use: 'url-loader?limit=8192' },
+            {
+                test: /\.(png|jpe?g|gif)$/i,
+                use: [
+                  {
+                    loader: 'file-loader',
+                  },
+                ],
+              },
         ],
     },
-    plugins: [
-        new HWP(
-            { template: path.join(__dirname, '/src/index.html') }
-        )
-    ],
     devServer: {
+        historyApiFallback:true,
         static: {
             directory: path.resolve(__dirname, 'dist'),
             publicPath: '/build'
         },
-        proxy: {
-            '/': 'http://localhost:3000/'
-        }
-    },
+        // proxy: {
+            //     '/': 'http://localhost:3000/'
+            // }
+        },
+        plugins: [
+            require('autoprefixer'),
+            new HWP(
+                { template: path.join(__dirname, '/src/index.html') }
+            )
+        ],
 };

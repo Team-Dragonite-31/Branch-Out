@@ -1,0 +1,151 @@
+@import '../../node_modules/bootstrap/scss/bootstrap';
+
+$primary: $blue-300;
+$dark: $indigo-700;
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  display: flex;
+  justify-content: center;
+  background-color: rgb(243, 217, 222);
+}
+
+h1 {
+  padding-top: 20px;
+}
+
+a {
+  color: white;
+  text-decoration: none;
+}
+
+a:hover {
+  color: rgba(238, 63, 109, 0.5);
+}
+
+h2 {
+  margin-bottom: 20px;
+}
+
+img {
+  border-radius: 50%;
+  margin: 5px;
+}
+
+.parks {
+  justify-content: center;
+}
+
+.reviewPost {
+  list-style: none;
+  margin-left: 0px;
+  padding-left: 0px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border: solid;
+  border-radius: 10px;
+  width: 40vw;
+  text-align: center;
+  background-color: white;
+  box-shadow: 3px 3px;
+}
+
+.blossomMeter {
+  text-align: center;
+}
+
+.reviewForm {
+  margin-top: 50px;
+  text-align: center;
+}
+
+#userRating {
+  margin-left: 5px;
+}
+
+.date {
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+.commentForm {
+  height: 50px;
+  border-radius: 10px;
+  margin-top: 10px;
+  margin-bottom: 50px;
+  margin-right: 15px;
+  margin-left: 5px;
+  padding-left: 5px;
+}
+
+.loginButton {
+  display: flex;
+  justify-content: flex-start;
+  margin-top: 20px;
+  margin-right: 10px;
+  height: 100%;
+  margin-left: 10px;
+}
+
+.btn btn-primary {
+  margin-left: 5px;
+}
+
+.headerStyling {
+  padding-bottom: 50px;
+}
+
+#logo {
+  border-radius: 0%;
+  height: 3em;
+}
+
+#navBar {
+  background-color: white !important;
+}
+
+#login {
+  background-color: rgba(238, 63, 109, 0.5);
+  outline: rgb(241, 187, 198) !important;
+  margin-right: 5px;
+  color: white;
+}
+
+#name {
+  background-color: rgba(238, 63, 109, 0.5);
+  outline: rgb(241, 187, 198) !important;
+  margin-right: 5px;
+  color: white;
+}
+
+#loginButton {
+  margin-left: 5px;
+  background-color: rgb(241, 187, 198);
+  outline: rgb(241, 187, 198) !important;
+  color: white;
+}
+
+#signupButton {
+  margin-left: 5px;
+  background-color: rgb(241, 187, 198);
+  outline: rgb(241, 187, 198) !important;
+  color: white;
+}
+
+#usernameInput {
+  margin-top: 20px;
+}
+
+.flex-parent-element {
+  display: flex;
+  width: 50%;
+}
+
+.flex-child-element {
+  flex: 1;
+  border: 2px solid blueviolet;
+  margin: 10px;
+}
+.flex-child-element:first-child {
+  margin-right: 20px;
+}
