@@ -15,7 +15,7 @@ function Header(props){
     else button.push(<button key={1} className="btn btn-primary">Hello {props.username}</button>)
     return(
         <div className="headerStyling">
-            <button className="btn btn-primary" key={3}>Branch Out</button>
+            <Link to='/'><button className="btn btn-primary" key={3}>Branch Out</button></Link>
             {button}
         </div>
     )
