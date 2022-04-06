@@ -20,7 +20,7 @@ import Comments from '../components/Comments.jsx';
 
 function ParkContainer(props) {
   const [rating, setRating] = useState('');
-  const [username, setUsername] = useState('');
+  const [username, setUsername] = useState('test username');
   const [posts, setPosts] = useState([]);
   const [parkName, setParkName] = useState(useParams().parkName);
 
@@ -45,7 +45,7 @@ function ParkContainer(props) {
     <div>
       <Header />
       <BlossomMeter rating={rating} parkName={parkName.split('-').join(' ')} />
-      <Comments posts={posts}/>
+      <Comments posts={posts} parkName={parkName} username={username}/>
     </div>
   )
 }

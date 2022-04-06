@@ -53,7 +53,7 @@ app.post('/submitReview', loginController.verifyLogin, postsController.submitRev
 })
 
 // catch-all route handler for requests made to unknown route
-app.use((req, res) => res.status(404).send('Request sent to unknown page'));
+app.use((req, res) => res.status(404).json('Request sent to unknown page'));
 
 //error handling (standard & global)
 app.use((err, req, res, next) => {
@@ -64,7 +64,7 @@ app.use((err, req, res, next) => {
     };
     const errorObj = Object.assign({}, defaultErr, err);
     console.log(errorObj.log);
-    return res.status(errorObj.stats).json(errorObj.message);
+    return res.status(errorObj.status).json(errorObj.message);
 })
 
 
