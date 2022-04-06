@@ -13,12 +13,12 @@ function ParkButton(props) {
         backgroundColor: 'rgb(241, 187, 198)',
       }}
     >
-        <img
+      <Link to={'/park/' + props.parkName.split(' ').join('-')}>
+      <img
           src={props.image}
           alt='park'
           style={{ height: '450px', width: '500px' }}
         />
-      <Link to={'/park/' + props.parkName.split(' ').join('-')}>
         <h3
           style={{
             display: 'flex',
