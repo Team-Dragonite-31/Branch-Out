@@ -12,11 +12,6 @@ const LoginContainer = (props) => {
         username: userInput,
         password: passInput
       }
-      // const metaData = {
-      //   method: 'POST',
-      //   headers: {"Content-Type": "application/json"},
-      //   body: JSON.stringify(body)
-      // }
       fetch('http://localhost:3000/login', {
         method: 'POST',
         headers: {
@@ -25,10 +20,15 @@ const LoginContainer = (props) => {
         body: JSON.stringify(body)
       })
       .then((data) => data.json())
-      //.then((result) => console.log('result:', result))
+      // .then((result) => console.log('result:', result))
       .then((name) => props.setUserName(name))
-      .then((data)=>window.location.href='/')
-      .catch((err) => console.log('no user in system'))
+      .then((data)=>{
+        if(data !== '') window.location.href='/'
+      })
+      .catch((err) => {
+        //props.setUserName('')
+        console.log('no user in system')
+      })
       // .then(data => console.log(message))
         // .then(data => data.json())
         // .then(data => setMessage(data)

@@ -14,7 +14,7 @@ function Comments(props) {
     return (
         <div>
             <div>
-                <SubmitForm parkName={props.parkName} username={props.username} />
+                <SubmitForm parkName={props.parkName} setPosts={props.setPosts} setRating={props.setRating} username={props.username} />
                 {comments}
             </div>
         </div>
