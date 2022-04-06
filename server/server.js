@@ -57,9 +57,9 @@ app.post('/submitReview', loginController.verifyLogin, postsController.submitRev
   res.status(200).json({rating: res.locals.parkData.round, posts: res.locals.parkPosts});
 })
 
-app.get('/', (req, res) => {
-    res.status(200).sendFile(path.join(__dirname, './src/index.html'))
-})
+// app.get('/', (req, res) => {
+//     res.status(200).sendFile(path.join(__dirname, './src/index.html'))
+// })
 
 // catch-all route handler for requests made to unknown route
 app.use((req, res) => res.status(404).json('Request sent to unknown page'));

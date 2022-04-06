@@ -43,7 +43,6 @@ function ParkContainer(props) {
   
   return (
     <div>
-      <Header />
       <BlossomMeter rating={rating} parkName={parkName.split('-').join(' ')} />
       <Comments posts={posts} parkName={parkName} username={username}/>
     </div>
