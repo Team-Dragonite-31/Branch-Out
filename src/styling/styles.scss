@@ -1,10 +1,10 @@
-@import '../../node_modules/bootstrap/scss/bootstrap';
+@import "../../node_modules/bootstrap/scss/bootstrap";
 
 $primary: $blue-300;
 $dark: $indigo-700;
 
 body {
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   display: flex;
   justify-content: center;
   background-color: rgb(243, 217, 222);
@@ -148,4 +148,11 @@ img {
 }
 .flex-child-element:first-child {
   margin-right: 20px;
+}
+
+.buttonz {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding-left: 40px;
 }

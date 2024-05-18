@@ -1,14 +1,14 @@
-import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 function Header(props) {
   useEffect(() => {
-    if (window.localStorage.getItem('username'))
-      props.setUsername(window.localStorage.getItem('username'));
+    if (window.localStorage.getItem("username"))
+      props.setUsername(window.localStorage.getItem("username"));
   }, []);
 
   useEffect(() => {
-    window.localStorage.setItem('username', props.username);
+    window.localStorage.setItem("username", props.username);
 
     // if (props.username !== "") {
     //   button.shift();
@@ -24,7 +24,7 @@ function Header(props) {
   const button = [];
 
   //not logged in logic
-  if (props.username === '') {
+  if (props.username === "") {
     button.push(
       <Link key='4' to='/login'>
         <button key='1' id='login' className='btn btn-light'>
